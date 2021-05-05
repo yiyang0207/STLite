@@ -42,8 +42,7 @@ namespace sjtu
             Node() : color(RED), parent(nullptr), left(nullptr), right(nullptr)
             {}
 
-            Node(const value_type &v, Color c = RED) : value(v), color(c), parent(nullptr), left(nullptr),
-                                                       right(nullptr)
+            Node(const value_type &v, Color c = RED) : value(v), color(c), parent(nullptr), left(nullptr), right(nullptr)
             {}
         };
 
@@ -757,34 +756,6 @@ namespace sjtu
         {
             return const_iterator(this, _find(key, root));
         }
-
-//    private:
-//        void _print(Node *t) const
-//        {
-//            if (t == nullptr) return;
-//            std::cout << t->value.first << ' ';
-//            if (t->color == BLACK) std::cout << "B ";
-//            else std::cout << "R ";
-//            if (t->parent != nullptr) std::cout << t->parent->value.first << ' ';
-//            else std::cout << "* ";
-//            if (t->left != nullptr) std::cout << t->left->value.first << ' ';
-//            else std::cout << "* ";
-//            if (t->right != nullptr) std::cout << t->right->value.first << '\n';
-//            else std::cout << "*\n";
-//            _print(t->left);
-//            _print(t->right);
-//        }
-//
-//    public:
-//        void print() const
-//        {
-//            _print(root);
-//        }
-//
-//        void printNode(iterator it) const
-//        {
-//            std::cout << it.node->value.second << '\n';
-//        }
     };
 }
 

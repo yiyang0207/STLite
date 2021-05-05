@@ -4,8 +4,6 @@
 #ifndef SJTU_MAP_HPP
 #define SJTU_MAP_HPP
 
-//#include <iostream>
-
 // only for std::less<T>
 #include <functional>
 #include <cstddef>
@@ -100,12 +98,10 @@ namespace sjtu
                 if (node->right != nullptr)
                 {
                     node = node->right;
-                    while (node->left != nullptr)
-                        node = node->left;
+                    while (node->left != nullptr) node = node->left;
                 } else
                 {
-                    while (node != nullptr && node->parent != nullptr && !isLeftChild(node))
-                        node = node->parent;
+                    while (node != nullptr && node->parent != nullptr && !isLeftChild(node)) node = node->parent;
                     node = node->parent;
                 }
                 return *this;
@@ -127,21 +123,18 @@ namespace sjtu
             iterator &operator--()
             {
                 if (*this == mp->begin()) throw invalid_iterator();
-                if (node == nullptr) //end()
+                if (node == nullptr)
                 {
                     if (mp->empty()) throw invalid_iterator();
                     node = mp->root;
-                    while (node->right != nullptr)
-                        node = node->right;
+                    while (node->right != nullptr) node = node->right;
                 } else if (node->left != nullptr)
                 {
                     node = node->left;
-                    while (node->right != nullptr)
-                        node = node->right;
+                    while (node->right != nullptr) node = node->right;
                 } else
                 {
-                    while (node != nullptr && node->parent != nullptr && isLeftChild(node))
-                        node = node->parent;
+                    while (node != nullptr && node->parent != nullptr && isLeftChild(node)) node = node->parent;
                     node = node->parent;
                 }
                 return *this;
@@ -233,12 +226,10 @@ namespace sjtu
                 if (node->right != nullptr)
                 {
                     node = node->right;
-                    while (node->left != nullptr)
-                        node = node->left;
+                    while (node->left != nullptr) node = node->left;
                 } else
                 {
-                    while (node != nullptr && node->parent != nullptr && !isLeftChild(node))
-                        node = node->parent;
+                    while (node != nullptr && node->parent != nullptr && !isLeftChild(node)) node = node->parent;
                     node = node->parent;
                 }
                 return *this;
@@ -260,21 +251,18 @@ namespace sjtu
             const_iterator &operator--()
             {
                 if (*this == mp->cbegin()) throw invalid_iterator();
-                if (node == nullptr) //end()
+                if (node == nullptr)
                 {
                     if (mp->empty()) throw invalid_iterator();
                     node = mp->root;
-                    while (node->right != nullptr)
-                        node = node->right;
+                    while (node->right != nullptr) node = node->right;
                 } else if (node->left != nullptr)
                 {
                     node = node->left;
-                    while (node->right != nullptr)
-                        node = node->right;
+                    while (node->right != nullptr) node = node->right;
                 } else
                 {
-                    while (node != nullptr && node->parent != nullptr && isLeftChild(node))
-                        node = node->parent;
+                    while (node != nullptr && node->parent != nullptr && isLeftChild(node)) node = node->parent;
                     node = node->parent;
                 }
                 return *this;
@@ -420,8 +408,7 @@ namespace sjtu
         {
             if (empty()) return end();
             Node *t = root;
-            while (t->left != nullptr)
-                t = t->left;
+            while (t->left != nullptr) t = t->left;
             return iterator(this, t);
         }
 
@@ -429,8 +416,7 @@ namespace sjtu
         {
             if (empty()) return cend();
             Node *t = root;
-            while (t->left != nullptr)
-                t = t->left;
+            while (t->left != nullptr) t = t->left;
             return const_iterator(this, t);
         }
 
